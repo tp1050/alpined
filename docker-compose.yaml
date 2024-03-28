@@ -1,5 +1,6 @@
 services:
   alpined:
+    name: alpined
     image: alpine:latest
     container_name: alpined
     hostname: alpined
@@ -11,12 +12,12 @@ services:
       - PASSWORD="22111357"
       - PASS="22111357"
       - ROOT_PASSWORD="22111357"
-    command:
-      # - "/bin/sh" 
-      # - "-c"
-      # - |
-      #   addgroup c root && adduser -S -G root c && echo ${PASS} | chpasswd && sshd
-        journalctl -fu alpined > /home/c/Code/docker/alpined/logg.dool &  
+    # command:
+    #   # - "/bin/sh" 
+    #   # - "-c"
+    #   # - |
+    #   #   addgroup c root && adduser -S -G root c && echo ${PASS} | chpasswd && sshd
+    #     journalctl -fu alpined > /home/c/Code/docker/alpined/logg.dool &  
     volumes:
       - /home/c/Code/docker/alpined:/data
     logging:
