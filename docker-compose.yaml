@@ -1,6 +1,5 @@
 services:
   alpined:
-    name: alpined
     image: alpine:latest
     container_name: alpined
     hostname: alpined
