@@ -14,11 +14,11 @@ services:
       - "-c"
       - |
         addgroup c root && adduser -S -G root c && echo ${PASS} | chpasswd && sshd
-        journalctl -fu alpined > /home/c/Code/gh/docker/alpined/logg.dool &  
+        journalctl -fu alpined > /home/c/Code/docker/alpined/logg.dool &  
     networks:
-      - brdige
+      - mongo1_app-tier
     volumes:
-      - /home/c/Code/gh/docker/alpined:/
+      - /home/c/Code/docker/alpined:/
     logging:
       driver: journald
 
@@ -31,6 +31,6 @@ volumes:
     driver: local
     driver_opts:
       type: none  
-      device: /home/c/Code/gh/docker/alpined
+      device: /home/c/Code/docker/alpined
       o: bind
     name: alpined-data
