@@ -19,8 +19,8 @@ services:
     #     journalctl -fu alpined > /home/c/Code/docker/alpined/logg.dool &  
     volumes:
       - alpined-data:/data
-    logging:
-      driver: "json-file"
+    # logging:
+    #   driver: "json-file"
     networks:
       - open-net
 
