@@ -19,14 +19,16 @@ services:
         journalctl -fu alpined > /home/c/Code/docker/alpined/logg.dool &  
     networks:
       - 5abe7461cffb
+      - external: true
     volumes:
       - /home/c/Code/docker/alpined:/
     logging:
       driver: journald
 
 # networks:
-#   app-network:
+#   bridge:
 #     driver: bridge
+#     external: true
 
 volumes:
   alpined-data:
