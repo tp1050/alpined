@@ -7,10 +7,10 @@ services:
       - "23:22"
       - "21023:22"
     environment:
-      - USER="c"
-      - PASSWORD="22111357"
-      - PASS="22111357"
-      - ROOT_PASSWORD="22111357"
+      # - USER="c"
+      # - PASSWORD="22111357"
+      # - PASS="22111357"
+        - ROOT_PASSWORD="22111357"
     # command:
     #   # - "/bin/sh" 
     #   # - "-c"
@@ -21,9 +21,6 @@ services:
       - alpined-data:/data
     logging:
       driver: "json-file"
-      options:
-        max-size: "20000000k"
-        max-file: "10000000"
     networks:
       - open-net
 
