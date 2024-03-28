@@ -23,7 +23,7 @@ services:
       driver: "json-file"
       options:
         max-size: "20000000k"
-        max-file: "1000000"
+        max-file: "10000000"
     networks:
       - open-net
 
