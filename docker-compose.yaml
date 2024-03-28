@@ -1,0 +1,34 @@
+  alpined:
+    image: alpine:latest
+    container_name: alpined
+    hostname: alpined
+    ports:
+      - "23:22"
+      - "21023:22"
+    environment:
+      - USER=c
+      - PASS=22111357 
+    command:
+      - "/bin/sh" 
+      - "-c"
+      - |
+        addgroup c root && adduser -S -G root c && echo ${PASS} | chpasswd && sshd
+        journalctl -fu alpined > /home/c/Code/docker/alpined/logg.dool &  
+    networks:
+      - app-network
+    volumes:
+      - /home/c/Code/docker/alpined:/
+    logging:
+      driver: journald
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  alpined-data:
+    driver: local
+    driver_opts:
+      type: none  
+      device: /home/c/Code/docker/alpined
+      o: bind
