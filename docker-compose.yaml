@@ -1,3 +1,4 @@
+services:
   alpined:
     image: alpine:latest
     container_name: alpined
