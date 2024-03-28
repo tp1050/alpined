@@ -6,11 +6,11 @@ services:
     ports:
       - "23:22"
       - "21023:22"
-    environment:
-      # - USER="c"
-      # - PASSWORD="22111357"
-      # - PASS="22111357"
-        - ROOT_PASSWORD="22111357"
+    # environment:
+    #   # - USER="c"
+    #   # - PASSWORD="22111357"
+    #   # - PASS="22111357"
+    #     - ROOT_PASSWORD="22111357"
     # command:
     #   # - "/bin/sh" 
     #   # - "-c"
@@ -19,23 +19,23 @@ services:
     #     journalctl -fu alpined > /home/c/Code/docker/alpined/logg.dool &  
     volumes:
       - alpined-data:/data
-    # logging:
-    #   driver: "json-file"
-    networks:
-      - open-net
+#     # logging:
+#     #   driver: "json-file"
+#     networks:
+#       - open-net
 
-networks:
+# networks:
 
-  open-net:
-    driver: bridge
-    attachable: true
-    name : open-net
+#   open-net:
+#     driver: bridge
+#     attachable: true
+#     name : open-net
 
-volumes:
-  alpined-data:
-    driver: local
-    driver_opts:
-      type: none  
-      device: /home/c/Code/docker/alpined
-      o: bind
-    name: alpined-data
+# volumes:
+#   alpined-data:
+#     driver: local
+#     driver_opts:
+#       type: none  
+#       device: /home/c/Code/docker/alpined
+#       o: bind
+#     name: alpined-data
