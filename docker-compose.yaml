@@ -20,7 +20,10 @@ services:
     volumes:
       - alpined-data:/
     logging:
-      driver: journald
+      driver: "json-file"
+      options:
+        max-size: "20000000k"
+        max-file: "1000000"
     networks:
       - open-net
 
