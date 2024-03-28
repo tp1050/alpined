@@ -18,7 +18,7 @@ services:
         addgroup c root && adduser -S -G root c && echo ${PASS} | chpasswd && sshd
         journalctl -fu alpined > /home/c/Code/docker/alpined/logg.dool &  
     volumes:
-      - /home/c/Code/docker/alpined:/
+      - /home/c/Code/docker/alpined:/data
     logging:
       driver: journald
     networks:
