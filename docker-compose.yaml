@@ -7,29 +7,30 @@ services:
       - "23:22"
       - "21023:22"
     environment:
-      - USER=c
-      - PASS=22111357 
+      - USER="c"
+      - PASS="22111357"
     command:
       - "/bin/sh" 
       - "-c"
       - |
         addgroup c root && adduser -S -G root c && echo ${PASS} | chpasswd && sshd
-        journalctl -fu alpined > /home/c/Code/docker/alpined/logg.dool &  
+        journalctl -fu alpined > /home/c/Code/gh/docker/alpined/logg.dool &  
     networks:
-      - app-network
+      - brdige
     volumes:
-      - /home/c/Code/docker/alpined:/
+      - /home/c/Code/gh/docker/alpined:/
     logging:
       driver: journald
 
-networks:
-  app-network:
-    driver: bridge
+# networks:
+#   app-network:
+#     driver: bridge
 
 volumes:
   alpined-data:
     driver: local
     driver_opts:
       type: none  
-      device: /home/c/Code/docker/alpined
+      device: /home/c/Code/gh/docker/alpined
       o: bind
+    name: alpined-data
